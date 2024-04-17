@@ -1,0 +1,43 @@
+:root {
+  --nav-bar-height: 100px;
+  --gradient-1: linear-gradient(
+    to right,
+    hsla(0, 0%, 0%, 28%) 0%,
+    hsla(0, 0%, 0%, 100%) 100%
+  );
+  --gradient-2: linear-gradient(
+    to right,
+    hsla(71, 96%, 50%, 93%) 0%,
+    hsla(71, 96%, 50%, 82%) 100%
+  );
+  --gradient-3: linear-gradient(
+    to right,
+    hsla(71, 96%, 50%, 100%) 0%,
+    hsla(71, 96%, 50%, 91%) 100%
+  );
+  --gradient-4: linear-gradient(
+    to right,
+    hsla(71, 96%, 50%, 100%) 0%,
+    hsla(71, 96%, 50%, 90%) 100%
+  );
+  --gradient-5: linear-gradient(
+    to right,
+    hsla(338, 96%, 50%, 100%) 0%,
+    hsla(338, 100%, 22%, 78%) 100%
+  );
+  --gradient-6: linear-gradient(
+    to right,
+    hsla(313, 96%, 50%, 100%) 0%,
+    hsla(313, 100%, 24%, 71%) 100%
+  );
+  --gradient-7: linear-gradient(
+    to right,
+    hsla(40, 96%, 50%, 97%) 0%,
+    hsla(40, 100%, 27%, 78%) 100%
+  );
+  --gradient-8: linear-gradient(
+    to right,
+    hsla(0, 0%, 100%, 41%) 0%,
+    hsla(0, 0%, 100%, 100%) 100%
+  );
+}
