@@ -1,0 +1,125 @@
+---
+import { Image } from 'astro:assets'
+import logoImg from '../assets/images/logo.png'
+import { Icon } from 'astro-icon/components'
+const services = [
+  {
+    href: '/services/ppc',
+    name: 'PPC',
+  },
+  {
+    href: '/services/social-media-management',
+    name: 'Social Media Management',
+  },
+  {
+    href: '/services/lead-generation',
+    name: 'Lead Generation',
+  },
+  {
+    href: '/services/email-marketing',
+    name: 'Email Marketing',
+  },
+  {
+    href: '/services/website-design-and-development',
+    name: 'Website Design and Development',
+  },
+  {
+    href: '/services/seo',
+    name: 'SEO',
+  },
+  {
+    href: '/services/branding',
+    name: 'Branding',
+  },
+  {
+    href: '/services/logo-design',
+    name: 'Logo Design',
+  },
+]
+---
+
+<footer class="bg-black pt-28 text-white">
+  <div
+    class="container mx-auto space-y-10 px-4 py-20 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:space-y-0"
+  >
+    <div class="space-y-6 md:col-span-2 lg:col-span-1 lg:mt-2">
+      <Image class="w-40 lg:w-44" src={logoImg} alt="offgrid logo" />
+      <p class="text-gray-300">
+        Off Grid was established with one goal. To help trade and construction
+        businesses scale their operation through the use of modern digital
+        marketing strategies.
+      </p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="transition-all duration-200 hover:text-brand-1">
+          <Icon name="facebook" size={28} />
+        </a>
+        <a href="#">
+          <Icon
+            name="instagram"
+            size={28}
+            class="transition-all duration-200 hover:text-brand-1"
+          />
+        </a>
+      </div>
+    </div>
+    <div class="space-y-6">
+      <h2 class="font-kanit text-4xl font-bold uppercase italic">Services</h2>
+      <ul class="space-y-2">
+        {
+          services.map((service) => (
+            <li>
+              <a
+                class="transition-all duration-200 hover:text-brand-1"
+                href={service.href}
+              >
+                {service.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="space-y-6">
+      <h2 class="font-kanit text-4xl font-bold uppercase italic">Contact</h2>
+
+      <div class="space-y-2">
+        <p>Sydney, Australia</p>
+        <p>hello@offgriddigital.co.au</p>
+        <p>0411 124 879</p>
+      </div>
+    </div>
+
+    <div class="space-y-6 md:col-span-2 lg:col-span-1">
+      <h2 class="font-kanit text-4xl font-bold uppercase italic">OG Weekly</h2>
+      <p class="text-gray-300">
+        To recieve weekly educational emails covering digital marketing news and
+        advice, please subscribe to our newsletter. Don't worry, you can
+        unsubscribe at any time.
+      </p>
+      <form class="flex flex-col gap-4">
+        <input
+          class="rounded-md border-2 border-gray-600/80 bg-transparent p-3 text-gray-500 outline-none transition-all duration-200 placeholder:text-gray-600/80 focus:border-gray-500"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="johndoe@gmail.com"
+        />
+        <button
+          class="gap- group flex items-center justify-center gap-2 rounded-md bg-brand-1 p-3 font-semibold text-black transition-all duration-200 hover:bg-white"
+        >
+          <span>Subscribe</span>
+          <Icon
+            name="right-arrow"
+            size={22}
+            class="transition-all duration-200 group-hover:translate-x-1.5"
+          />
+        </button>
+      </form>
+    </div>
+
+    <div class="text-sm text-gray-300">
+      &copy;{new Date().getFullYear()} - OFF GRID Digital
+    </div>
+  </div>
+</footer>
