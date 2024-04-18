@@ -1,0 +1,84 @@
+---
+import { getEntry } from 'astro:content'
+
+const summaryMessage = await getEntry('founder-message', 'summary')
+const { Content: SummaryMessage } = await summaryMessage.render()
+const fullMessage = await getEntry('founder-message', 'full')
+const { Content: FullMessage } = await fullMessage.render()
+---
+
+<script>
+    const readMoreBtn: HTMLButtonElement =
+        document.querySelector('.read-more-btn')!
+    const readLessBtn: HTMLButtonElement =
+        document.querySelector('.read-less-btn')!
+    const summaryMessage: HTMLDivElement = document.querySelector('.summary')!
+    const fullMessage: HTMLDivElement = document.querySelector('.full')!
+
+    readMoreBtn.addEventListener('click', () => {
+        summaryMessage.classList.add('hide')
+        summaryMessage.classList.remove('show')
+
+        fullMessage.classList.add('show')
+        fullMessage.classList.remove('hide')
+    })
+
+    readLessBtn.addEventListener('click', () => {
+        summaryMessage.classList.add('show')
+        summaryMessage.classList.remove('hide')
+
+        fullMessage.classList.add('hide')
+        fullMessage.classList.remove('show')
+    })
+</script>
+
+<article class="founder-message">
+    <div class="summary show">
+        <SummaryMessage />
+        <button type="button" class="read-more-btn">Read more</button>
+    </div>
+    <div class="full hide">
+        <FullMessage />
+        <button type="button" class="read-less-btn">Read less</button>
+    </div>
+</article>
+
+<style is:global>
+    article.founder-message p {
+        margin-block: 1rem;
+    }
+
+    article.founder-message ul {
+        list-style-type: '- ';
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    button {
+        outline: none;
+        border: none;
+        font-size: var(--font-size-3);
+        font-weight: var(--font-weight-6);
+        background-color: transparent;
+        color: var(--color-brand-1);
+        transition: all 200ms var(--ease-5);
+
+        &:hover {
+            cursor: pointer;
+            color: white;
+        }
+    }
+</style>

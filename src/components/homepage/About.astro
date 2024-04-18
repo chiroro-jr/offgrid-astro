@@ -1,0 +1,63 @@
+---
+import { getEntry } from 'astro:content'
+import FounderMessage from './FounderMessage.astro'
+import { Image } from 'astro:assets'
+import founderImg from '../../assets/images/founder.png'
+import offgridStickerImg from '../../assets/images/offgrid-sticker.png'
+
+const founderMessage = await getEntry('founder-message', 'summary')
+---
+
+<section>
+  <div class="skew py-28">
+    <div class="container mx-auto bg-black px-4 text-white">
+      <div class="content py-8 md:py-12 lg:px-24 lg:py-4">
+        <div class="grid lg:grid-cols-[1fr_40px_1fr] lg:grid-rows-[16rem_1fr]">
+          <div
+            class="space-y-2 bg-brand-1 p-8 md:p-14 lg:z-10 lg:col-[1/3] lg:row-[2/-1] lg:space-y-8 lg:p-16"
+          >
+            <h2
+              class="mx-auto max-w-fit bg-black p-4 font-kanit text-2xl font-bold uppercase text-white md:text-3xl lg:ml-auto lg:text-end lg:text-5xl"
+            >
+              {founderMessage.data.name}
+            </h2>
+            <p
+              class="text-center font-kanit text-2xl font-bold uppercase text-black md:text-3xl lg:text-end lg:text-5xl"
+            >
+              {founderMessage.data.title}
+            </p>
+          </div>
+          <div class="relative row-[1] lg:col-[2/-1] lg:row-[1/-1]">
+            <Image
+              src={offgridStickerImg}
+              alt="offgrid sticker"
+              class="absolute -top-[6.5rem] left-[40%] -translate-x-[40%] lg:-left-5 lg:-top-[5rem]"
+            />
+            <Image
+              src={founderImg}
+              alt="offgrid's founder"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+        <div>
+          <FounderMessage />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skew {
+    padding-block: 7rem;
+    background-color: var(--color-brand-1);
+    background-image: var(--gradient-3),
+      url('../../assets/images/offgrid-mask.svg');
+    transform: skewY(-4.5deg) translateY(-8rem);
+  }
+
+  .content {
+    transform: skewY(4.5deg);
+  }
+</style>
