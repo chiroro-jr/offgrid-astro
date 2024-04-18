@@ -1,0 +1,142 @@
+---
+import { Image } from 'astro:assets'
+import logoImg from '../assets/images/logo.png'
+import { Icon } from 'astro-icon/components'
+
+const primaryLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'Advanced Growth System', path: '/advanced-growth-system' },
+  { name: 'Ebook', path: '/ebook' },
+  { name: 'Blog', path: '/blog' },
+]
+
+const secondaryLinks = [
+  'Instagram',
+  'Facebook',
+  'LinkedIn',
+  'Twitter',
+  'Privacy Policy',
+]
+---
+
+<script>
+  const openMenuBtn = (document.querySelector(
+    '.menu-open-btn',
+  ) as HTMLButtonElement)!
+  const closeMenuBtn = (document.querySelector(
+    '.menu-close-btn',
+  ) as HTMLButtonElement)!
+  const navLinks = (document.querySelector('.nav-links') as HTMLDivElement)!
+  const navHeader = (document.querySelector('.nav-header') as HTMLDivElement)!
+
+  openMenuBtn.addEventListener('click', (e) => {
+    closeMenuBtn.classList.add('block')
+    closeMenuBtn.classList.remove('hidden')
+
+    navLinks.classList.add('open')
+    navLinks.classList.remove('closed')
+
+    navHeader.classList.add('open')
+    navHeader.classList.remove('closed')
+
+    openMenuBtn.classList.add('hidden')
+    openMenuBtn.classList.remove('block')
+  })
+
+  closeMenuBtn.addEventListener('click', (e) => {
+    closeMenuBtn.classList.add('hidden')
+    closeMenuBtn.classList.remove('block')
+
+    navLinks.classList.add('closed')
+    navLinks.classList.remove('open')
+
+    navHeader.classList.add('closed')
+    navHeader.classList.remove('open')
+
+    openMenuBtn.classList.add('block')
+    openMenuBtn.classList.remove('hidden')
+  })
+</script>
+
+<nav class="fixed inset-x-0 h-24">
+  <div
+    class="nav-header absolute inset-0 z-20 transition-all duration-150 ease-out"
+  >
+    <div class="container mx-auto flex items-center justify-between px-4 py-6">
+      <a href="/">
+        <Image src={logoImg} alt="off grid logo" class="w-40 lg:w-44" />
+      </a>
+      <div>
+        <Icon
+          name="menu-open"
+          class="menu-open-btn block transition-all duration-200 ease-in-out hover:cursor-pointer"
+          size={42}
+        />
+        <Icon
+          name="menu-close"
+          class="menu-close-btn hidden transition-all duration-200 ease-in-out hover:cursor-pointer"
+          size={42}
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="nav-links nav-closed closed duration-400 absolute inset-x-0 top-24 z-10 bg-black text-white transition-all"
+  >
+    <div class="container mx-auto space-y-8 px-4 pb-8">
+      <ul class="space-y-4">
+        {
+          primaryLinks.map((link) => (
+            <li class="primary-link border-b-[1px] border-white/30 pb-3 font-kanit text-4xl font-black uppercase italic tracking-wider transition-all duration-200 md:pb-5 md:text-5xl lg:pb-7 lg:text-7xl">
+              <a href={link.path} />
+              {link.name}
+            </li>
+          ))
+        }
+      </ul>
+      <ul
+        class="space-y-1.5 md:flex md:items-center md:gap-2 md:space-y-0 lg:text-lg"
+      >
+        <li class="mb-2 text-brand-1 md:mb-0 md:mr-auto">Digital Marketing</li>
+        {
+          secondaryLinks.map((link) => (
+            <li class="flex items-center gap-2 transition-all duration-200 hover:text-brand-1 last:md:ml-auto">
+              <Icon name="right-arrow" class="" size={24} />
+              <a href="#">{link}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-header.open {
+    background-color: black;
+    color: white;
+  }
+  .nav-header.closed {
+    background-color: transparent;
+    color: black;
+  }
+
+  .primary-link {
+    color: transparent;
+    -webkit-text-stroke: white 2px;
+    text-stroke: white 2px;
+
+    &:hover {
+      color: var(--color-brand-1);
+      -webkit-text-stroke-color: var(--color-brand-1);
+    }
+  }
+
+  .nav-links.closed {
+    transform: translateY(calc(-1 * calc(6rem + 100%)));
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+  }
+</style>

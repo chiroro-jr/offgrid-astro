@@ -1,5 +1,8 @@
 :root {
   --nav-bar-height: 100px;
+  --color-brand-1: #cefa05;
+  --color-brand-2: #eeffa3;
+
   --gradient-1: linear-gradient(
     to right,
     hsla(0, 0%, 0%, 28%) 0%,
