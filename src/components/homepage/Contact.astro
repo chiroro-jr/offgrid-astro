@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets'
+---
+
+<section>
+  <div class="skew">
+    <div class="container mx-auto px-4">
+      <div class="content space-y-8">
+        <h2
+          class="grid gap-4 text-center font-kanit text-4xl font-bold uppercase italic text-black md:text-5xl lg:text-6xl"
+        >
+          <span>Do you think your website could be doing better?</span>
+        </h2>
+        <h3
+          class="grid gap-4 text-center font-kanit text-2xl font-bold uppercase italic text-black md:text-3xl lg:text-4xl"
+        >
+          Check with our free website performance test.
+        </h3>
+        <form class="mx-auto max-w-4xl space-y-6">
+          <div class="grid gap-2">
+            <label for="website" class="text-sm text-gray-500 md:text-base"
+              >Website URL</label
+            >
+            <input
+              type="text"
+              name="website"
+              id="website"
+              class="rounded-md border-2 border-gray-300 p-4 text-gray-500 outline-none transition-all duration-200 focus:border-gray-400"
+              placeholder="https://example.com"
+            />
+          </div>
+          <div class="grid gap-2">
+            <label for="issue" class="text-sm text-gray-500 md:text-base"
+              >What's the biggest issue with your website right now?</label
+            >
+            <select
+              name="issue"
+              id="issue"
+              class="rounded-md border-2 border-gray-300 bg-transparent p-4 text-gray-500 outline-none transition-all duration-200 focus:border-gray-400"
+            >
+              <option value="" selected hidden>Select an issue</option>
+              <option value="I need more traffic">I need more traffic</option>
+              <option value="I need better performance"
+                >I need better performance</option
+              >
+              <option value="I need better design">I need better sign</option>
+            </select>
+          </div>
+          <div>
+            <button
+              class="block w-full rounded-md bg-brand-1 py-4 font-semibold text-black transition-all duration-200 hover:bg-black hover:text-brand-1"
+              >Next</button
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: white;
+  }
+
+  .skew {
+    padding-block: 7rem;
+    background-color: white;
+    transform: skewY(-4.5deg) translateY(-8rem);
+  }
+
+  .content {
+    transform: skewY(4.5deg);
+  }
+</style>
