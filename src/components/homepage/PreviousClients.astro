@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets'
+---
+
+<section>
+  <div class="skew">
+    <div class="container mx-auto px-4">
+      <div class="content space-y-8">
+        <h2
+          class="grid gap-4 text-center font-kanit text-4xl font-bold uppercase italic text-black md:text-5xl lg:text-6xl"
+        >
+          We serve with pride
+        </h2>
+        <div class="previous-clients">
+          {
+            [1, 2, 3, 4, 5, 5].map((item) => (
+              <div class="flex items-center justify-center rounded-md bg-white p-2">
+                <img src={`/images/previous-client-${item}.png`} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background: black;
+  }
+
+  .skew {
+    padding-block: 7rem;
+    background-image: var(--gradient-2),
+      url('../../assets/images/previous-clients-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: skewY(-4.5deg) translateY(-8rem);
+  }
+
+  .content {
+    transform: skewY(4.5deg);
+  }
+
+  .previous-clients {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: 100px;
+    gap: 2rem;
+  }
+</style>
