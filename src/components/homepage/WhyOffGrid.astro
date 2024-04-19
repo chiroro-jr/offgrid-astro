@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets'
+import whyOffGridImg from '../../assets/images/why-offgrid.png'
+import offGridSticker from '../../assets/images/offgrid-sticker-2.png'
+---
+
+<section>
+  <div class="skew">
+    <div class="container mx-auto px-4">
+      <div class="content space-y-8 text-black md:space-y-10 lg:space-y-12">
+        <h2
+          class="mx-auto max-w-[20ch] text-center font-kanit text-4xl font-bold uppercase italic md:text-5xl lg:text-6xl"
+        >
+          Why tradies choose to work with offgrid
+        </h2>
+        <div class="space-y-8 md:flex md:gap-4 md:space-y-0">
+          <div class="space-y-4 md:grid md:content-center lg:space-y-6">
+            <h3 class="text-lg font-semibold md:text-lg lg:text-2xl">
+              You've probably read enough...so we'll get straight to the point
+            </h3>
+            <ol class="space-y-2 pl-4 lg:text-xl">
+              <li>We're Australian based</li>
+              <li>
+                We're return on investment focused meaning if you are not making
+                gains after our optimization period... we'll be the first to
+                call it out.
+              </li>
+              <li>We're a Tradie partner</li>
+              <li>
+                We're a digital extension of every partner that joins our team.
+              </li>
+              <li>We guarantee results</li>
+            </ol>
+          </div>
+          <div class="images relative">
+            <Image
+              class="h-full w-full object-cover"
+              src={whyOffGridImg}
+              alt=""
+            />
+            <Image
+              class="absolute -right-2 -top-8"
+              src={offGridSticker}
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skew {
+    padding-block: 7rem;
+    background-color: var(--color-brand-1);
+    background-image: var(--gradient-2),
+      url('../../assets/images/offgrid-mask.svg');
+    transform: skewY(-4.5deg) translateY(-8rem);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .content {
+    transform: skewY(4.5deg);
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  .images {
+    clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+  }
+</style>
