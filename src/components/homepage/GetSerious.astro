@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets'
+import instagramCardImg from '../../assets/images/get-serious-instagram.png'
+import agsCardImg from '../../assets/images/get-serious-ags.png'
+
+const cardsContent = [
+  {
+    title: 'Instagram',
+    image: instagramCardImg,
+    subtitle: 'The one Instagram CHANNEL you need to following',
+    description: [
+      'We post 7 days a week, so if you want to learning something, market independently,and figure things out yourself, give us a follow.',
+    ],
+    cta: 'Become smarter with us',
+  },
+  {
+    title: 'AGS',
+    image: agsCardImg,
+    subtitle: 'Now this is where the magic happens',
+    description: [
+      'Now this is where the magic happens...',
+      'Ever heard of a strategy deployed so effectively that it literally...',
+      "Targets your 'ideal client',",
+    ],
+    cta: 'Read more',
+  },
+]
+---
+
+<section>
+  <div class="skew">
+    <div class="container mx-auto px-4">
+      <div class="content space-y-8 md:space-y-10 lg:space-y-12">
+        <h2
+          class="text-center font-kanit text-4xl font-bold uppercase italic text-white md:text-5xl lg:text-6xl"
+        >
+          Let's Get Serious
+        </h2>
+        <div class="space-y-8 md:flex md:gap-10 md:space-y-0 lg:gap-20">
+          {
+            cardsContent.map((content) => (
+              <div class="flex flex-col items-center gap-6 bg-brand-1 p-4 text-center text-black md:flex-1 md:p-10 lg:p-12">
+                <h2 class=" font-kanit text-4xl font-bold uppercase italic md:text-5xl">
+                  {content.title}
+                </h2>
+                <Image
+                  src={content.image}
+                  alt={content.subtitle}
+                  class="mx-auto w-1/2 object-contain md:w-3/4"
+                />
+                <h3 class="text-lg font-semibold md:text-xl">
+                  {content.subtitle}
+                </h3>
+                <div class="space-y-1">
+                  {content.description.map((item) => (
+                    <p>{item}</p>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  class="mt-auto block w-full rounded-md bg-black py-2.5 text-lg text-brand-1 transition-all duration-200 hover:bg-white hover:text-black"
+                >
+                  {content.cta}
+                </button>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skew {
+    padding-block: 7rem;
+    background-color: var(--color-brand-1);
+    background-image: var(--gradient-1),
+      url('../../assets/images/get-serious.png');
+    transform: skewY(-4.5deg) translateY(-8rem);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .content {
+    transform: skewY(4.5deg);
+  }
+</style>
