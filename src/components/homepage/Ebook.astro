@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets'
+import ebookImg from '../../assets/images/ebook.png'
+---
+
+<section>
+  <div class="skew">
+    <div class="container mx-auto px-4">
+      <div
+        class="content space-y-8 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0"
+      >
+        <div class="flex items-center justify-center">
+          <Image src={ebookImg} alt="off grid ebook" />
+        </div>
+        <div class="space-y-6 lg:space-y-12 lg:self-center">
+          <h2
+            class="text-center font-kanit text-4xl font-bold uppercase italic text-black md:text-5xl lg:text-start"
+          >
+            Rather do-it-yourself?
+          </h2>
+          <h3
+            class="text-center font-kanit text-2xl font-bold uppercase italic text-black md:text-3xl lg:text-start"
+          >
+            10X your results with this guide on hunting down leads and winning
+            them as clients... it's totally free
+          </h3>
+          <form class="flex flex-col gap-y-4 lg:grid lg:grid-cols-2 lg:gap-8">
+            <input
+              class="rounded-md border-2 border-gray-300 p-4 text-gray-400 outline-none transition-all duration-200 focus:border-gray-400"
+              placeholder="Full Name*"
+              type="text"
+              name="name"
+              id="name"
+            />
+            <input
+              class="rounded-md border-2 border-gray-300 p-4 text-gray-400 outline-none transition-all duration-200 focus:border-gray-400"
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Email*"
+            />
+            <input
+              class="rounded-md border-2 border-gray-300 p-4 text-gray-400 outline-none transition-all duration-200 focus:border-gray-400"
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder="Phone*"
+            />
+            <input
+              class="rounded-md border-2 border-gray-300 p-4 text-gray-400 outline-none transition-all duration-200 focus:border-gray-400"
+              type="text"
+              name="website"
+              id="website"
+              placeholder="Website*"
+            />
+            <button
+              type="button"
+              class="rounded-md bg-brand-1 p-4 font-semibold text-black transition-all duration-200 hover:bg-black hover:text-brand-1 md:col-span-2"
+              >I want it now</button
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skew {
+    padding-block: 7rem;
+    /* background-color: var(--color-brand-1); */
+    background-image: var(--gradient-8),
+      url('../../assets/images/ebook-section-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: skewY(-4.5deg) translateY(-8rem);
+  }
+
+  .content {
+    transform: skewY(4.5deg);
+  }
+</style>
