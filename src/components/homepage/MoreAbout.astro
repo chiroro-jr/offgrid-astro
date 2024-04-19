@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets'
+import megaphoneImg from '../../assets/images/speaker.png'
+---
+
+<section>
+  <div class="skew">
+    <div class="container mx-auto px-4">
+      <div class="content lg:grid lg:grid-cols-2 lg:gap-8">
+        <div class="mx-auto space-y-8 lg:pt-6">
+          <h2
+            class="font-kanit text-4xl font-bold uppercase italic md:text-5xl lg:text-6xl"
+          >
+            About Off grid
+          </h2>
+          <div class="max-w-[45ch] space-y-2.5 md:text-lg">
+            <p>Hey!</p>
+            <p>I'm Alex Dickinson and the founder of Off Grid Digital.</p>
+            <p>Before I move on just remeber... WE ARE NOT AN AGENCY!</p>
+            <p>You won't be lied to.</p>
+            <p>You won't be given false promises,</p>
+            <p>&amp; and you wont be burned.</p>
+            <p>When Off Grid was established I made a promise.</p>
+            <p>
+              Off Grid Digita would be the GO-TO Growth Partner for any Tradie
+              looking to scale their business using an online system.
+            </p>
+            <p>&amp; I intend on keeping it.</p>
+            <p>So what does this mean for you?</p>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="rounded-md bg-black p-4 font-semibold text-white transition-all duration-200 hover:bg-white hover:text-black"
+              >Here's our promise</button
+            >
+          </div>
+        </div>
+        <div class="-mt-24 md:ml-20 lg:m-0 lg:w-[90%]">
+          <Image src={megaphoneImg} alt="a megaphone" class="w-full" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skew {
+    padding-block: 7rem;
+    background-image: var(--gradient-2),
+      url('../../assets/images/more-about-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: skewY(-4.5deg) translateY(-8rem);
+  }
+
+  .content {
+    transform: skewY(4.5deg);
+  }
+</style>
