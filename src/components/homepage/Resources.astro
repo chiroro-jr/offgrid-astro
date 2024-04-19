@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets'
+import guideOneImg from '../../assets/images/guide-1-fg.png'
+import guideTwoImg from '../../assets/images/guide-2-fg.png'
+import quizImg from '../../assets/images/quiz-1-fg.png'
+---
+
+<section class="">
+  <div class="skew">
+    <div class="container mx-auto px-4">
+      <div class="content space-y-10">
+        <h2
+          class="mx-auto max-w-[20ch] text-center font-kanit text-4xl font-bold uppercase italic text-white md:text-5xl lg:text-6xl"
+        >
+          Resource to help you grow your building or trades business
+        </h2>
+        <div class="cards grid justify-center gap-8 lg:grid-cols-3">
+          <div
+            class="card flex max-w-[400px] flex-col items-center justify-between gap-10 p-10"
+          >
+            <Image src={guideOneImg} alt="guide 1 book" />
+            <div>
+              <button
+                class="rounded-md bg-white px-8 py-3.5 font-semibold text-black transition-all duration-200 hover:bg-brand-1"
+                >Get the Guide</button
+              >
+            </div>
+          </div>
+          <div
+            class="card flex max-w-[400px] flex-col items-center justify-between gap-10 p-10"
+          >
+            <Image src={quizImg} alt="quiz illustration" />
+            <button
+              class="rounded-md bg-white px-8 py-3.5 font-semibold text-black transition-all duration-200 hover:bg-brand-1"
+              >Take the Quiz</button
+            >
+          </div>
+          <div
+            class="card flex max-w-[400px] flex-col items-center justify-between gap-10 p-10"
+          >
+            <Image src={guideTwoImg} alt="guide 2 book" />
+            <button
+              class="rounded-md bg-white px-8 py-3.5 font-semibold text-black transition-all duration-200 hover:bg-brand-1"
+              >Get the Guide</button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skew {
+    padding-block: 7rem;
+    background-color: black;
+    background-image: var(--gradient-1),
+      url('../../assets/images/offgrid-mask-light.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: skewY(-4.5deg) translateY(-8rem);
+  }
+
+  .content {
+    transform: skewY(4.5deg);
+  }
+
+  .card {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card:nth-child(1) {
+    background-image: var(--gradient-5),
+      url('../../assets/images/guide-1-bg.png');
+  }
+  .card:nth-child(2) {
+    background-image: var(--gradient-6),
+      url('../../assets/images/quiz-1-bg.png');
+  }
+  .card:nth-child(3) {
+    background-image: var(--gradient-7),
+      url('../../assets/images/guide-2-bg.png');
+  }
+</style>
