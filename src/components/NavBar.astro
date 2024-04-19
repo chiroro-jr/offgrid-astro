@@ -20,6 +20,23 @@ const secondaryLinks = [
 ---
 
 <script>
+  const navbar = (document.querySelector('nav') as HTMLElement)!
+  const scrollY = window.scrollY // Get initial scroll position
+
+  console.log(navbar)
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY
+
+    if (currentScrollY > scrollY) {
+      // Scrolling down
+      navbar.classList.add('scrolled')
+    } else {
+      // Scrolling up or at the top
+      navbar.classList.remove('scrolled')
+    }
+  })
+
   const openMenuBtn = (document.querySelector(
     '.menu-open-btn',
   ) as HTMLButtonElement)!
@@ -60,13 +77,13 @@ const secondaryLinks = [
 
 <nav class="fixed inset-x-0 z-[100] h-24">
   <div
-    class="nav-header absolute inset-0 z-20 transition-all duration-150 ease-out"
+    class="nav-header closed absolute inset-0 z-20 transition-all duration-150 ease-out"
   >
     <div class="container mx-auto flex items-center justify-between px-4 py-6">
       <a href="/">
         <Image src={logoImg} alt="off grid logo" class="w-40 lg:w-44" />
       </a>
-      <div class="text-white">
+      <div class="menu-btns">
         <Icon
           name="menu-open"
           class="menu-open-btn block transition-all duration-200 ease-in-out hover:cursor-pointer"
@@ -112,11 +129,29 @@ const secondaryLinks = [
 </nav>
 
 <style>
+  nav.scrolled .nav-header.closed {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
   .nav-header.open {
     background-color: black;
   }
   .nav-header.closed {
     background-color: transparent;
+  }
+
+  .menu-btns {
+    color: white;
+  }
+  nav.scrolled .nav-header.closed .menu-btns {
+    color: black;
+  }
+  nav.scrolled .nav-header.open .menu-btns {
+    color: white;
+  }
+
+  .nav-header {
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease-in-out;
   }
 
   .primary-link {
